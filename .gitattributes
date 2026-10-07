@@ -1,0 +1,9 @@
+# install.inf 必须是 CRLF，而且要**以 CRLF 原样存进仓库**。
+# 用 eol=crlf 的话仓库里存的是 LF，GitHub 的 "Download ZIP" 直接取仓库里的字节，
+# 解压出来就成了 LF 的 INF —— Windows 的 INF 解析器对此很敏感。
+# -text = 不做任何行尾转换，工作区什么字节、仓库就什么字节。
+install.inf -text
+
+*.cur binary
+*.ani binary
+*.png binary

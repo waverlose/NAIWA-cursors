@@ -1,0 +1,99 @@
+; ============================================================================
+;  Nailong Cursor  ——  Windows 鼠标指针方案
+;
+;  安装：右键本文件 -> 「安装」-> 用户账户控制点「是」
+;        然后到「控制面板 -> 鼠标 -> 指针」的方案下拉框里选「Nailong Cursor」
+;
+;  卸载：鼠标属性里把方案换回「Windows 默认（系统方案）」，
+;        再删掉 C:\Windows\Cursors\Nailong Cursor 文件夹即可。
+;
+;  这个文件会被复制到 C:\Windows\Cursors\Nailong Cursor\，所以需要管理员权限。
+; ============================================================================
+
+[Version]
+Signature = "$CHICAGO$"
+Provider  = Nailong
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur
+AddReg    = Scheme.Schemes, Scheme.Apply
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+
+[SourceDisksNames]
+1 = %DISKNAME%
+
+[SourceDisksFiles]
+Arrow.cur       = 1,Cursors
+Help.cur        = 1,Cursors
+AppStarting.ani = 1,Cursors
+Wait.ani        = 1,Cursors
+Crosshair.cur   = 1,Cursors
+IBeam.cur       = 1,Cursors
+NWPen.cur       = 1,Cursors
+No.cur          = 1,Cursors
+SizeNS.cur      = 1,Cursors
+SizeWE.cur      = 1,Cursors
+SizeNWSE.cur    = 1,Cursors
+SizeNESW.cur    = 1,Cursors
+SizeAll.cur     = 1,Cursors
+UpArrow.cur     = 1,Cursors
+Hand.cur        = 1,Cursors
+Pin.cur         = 1,Cursors
+Person.cur      = 1,Cursors
+
+[Scheme.Cur]
+"Arrow.cur"
+"Help.cur"
+"AppStarting.ani"
+"Wait.ani"
+"Crosshair.cur"
+"IBeam.cur"
+"NWPen.cur"
+"No.cur"
+"SizeNS.cur"
+"SizeWE.cur"
+"SizeNWSE.cur"
+"SizeNESW.cur"
+"SizeAll.cur"
+"UpArrow.cur"
+"Hand.cur"
+"Pin.cur"
+"Person.cur"
+
+; ---------------------------------------------------------------------------
+;  在「鼠标属性 -> 指针 -> 方案」下拉框里注册本方案。
+;  这一行的顺序是固定的（和系统内部的指针槽位顺序一致），别打乱。
+; ---------------------------------------------------------------------------
+[Scheme.Schemes]
+HKCU,"Control Panel\Cursors\Schemes","Nailong Cursor",,"%10%\%CUR_DIR%\Arrow.cur,%10%\%CUR_DIR%\Help.cur,%10%\%CUR_DIR%\AppStarting.ani,%10%\%CUR_DIR%\Wait.ani,%10%\%CUR_DIR%\Crosshair.cur,%10%\%CUR_DIR%\IBeam.cur,%10%\%CUR_DIR%\NWPen.cur,%10%\%CUR_DIR%\No.cur,%10%\%CUR_DIR%\SizeNS.cur,%10%\%CUR_DIR%\SizeWE.cur,%10%\%CUR_DIR%\SizeNWSE.cur,%10%\%CUR_DIR%\SizeNESW.cur,%10%\%CUR_DIR%\SizeAll.cur,%10%\%CUR_DIR%\UpArrow.cur,%10%\%CUR_DIR%\Hand.cur,%10%\%CUR_DIR%\Pin.cur,%10%\%CUR_DIR%\Person.cur"
+
+; ---------------------------------------------------------------------------
+;  顺手把本方案设为「当前方案」—— 这样注销一次（或重开一次鼠标设置）就已经生效了。
+;  路径值的类型必须是 REG_EXPAND_SZ（0x00020000），用 REG_SZ 的话环境变量不展开。
+; ---------------------------------------------------------------------------
+[Scheme.Apply]
+HKCU,"Control Panel\Cursors","Arrow",0x00020000,"%10%\%CUR_DIR%\Arrow.cur"
+HKCU,"Control Panel\Cursors","Help",0x00020000,"%10%\%CUR_DIR%\Help.cur"
+HKCU,"Control Panel\Cursors","AppStarting",0x00020000,"%10%\%CUR_DIR%\AppStarting.ani"
+HKCU,"Control Panel\Cursors","Wait",0x00020000,"%10%\%CUR_DIR%\Wait.ani"
+HKCU,"Control Panel\Cursors","Crosshair",0x00020000,"%10%\%CUR_DIR%\Crosshair.cur"
+HKCU,"Control Panel\Cursors","IBeam",0x00020000,"%10%\%CUR_DIR%\IBeam.cur"
+HKCU,"Control Panel\Cursors","NWPen",0x00020000,"%10%\%CUR_DIR%\NWPen.cur"
+HKCU,"Control Panel\Cursors","No",0x00020000,"%10%\%CUR_DIR%\No.cur"
+HKCU,"Control Panel\Cursors","SizeNS",0x00020000,"%10%\%CUR_DIR%\SizeNS.cur"
+HKCU,"Control Panel\Cursors","SizeWE",0x00020000,"%10%\%CUR_DIR%\SizeWE.cur"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00020000,"%10%\%CUR_DIR%\SizeNWSE.cur"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00020000,"%10%\%CUR_DIR%\SizeNESW.cur"
+HKCU,"Control Panel\Cursors","SizeAll",0x00020000,"%10%\%CUR_DIR%\SizeAll.cur"
+HKCU,"Control Panel\Cursors","UpArrow",0x00020000,"%10%\%CUR_DIR%\UpArrow.cur"
+HKCU,"Control Panel\Cursors","Hand",0x00020000,"%10%\%CUR_DIR%\Hand.cur"
+HKCU,"Control Panel\Cursors","Pin",0x00020000,"%10%\%CUR_DIR%\Pin.cur"
+HKCU,"Control Panel\Cursors","Person",0x00020000,"%10%\%CUR_DIR%\Person.cur"
+HKCU,"Control Panel\Cursors","",,"Nailong Cursor"
+HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,2
+
+[Strings]
+DISKNAME = "Nailong Cursor"
+CUR_DIR  = "Cursors\Nailong Cursor"
