@@ -14,7 +14,7 @@
 # ---- 发布包本体（由 _design/make_release.py 生成，铺在仓库根目录）----
 !/install.inf
 !/使用说明.txt
-!/预览.png
+!/preview.png
 !/Cursors/
 
 # ---- 本地开发用，永远不上传 ----
